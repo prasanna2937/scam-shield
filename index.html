@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scam Shield - Offline Protector</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <!-- App Header with Theme & Language Toggle -->
+        <div class="header">
+            <div class="brand-info">
+                <div class="logo">🛡️</div>
+                <div>
+                    <h1 data-i18n="appTitle">Scam Shield</h1>
+                    <p data-i18n="appSubtitle">Offline Scam Protector</p>
+                </div>
+            </div>
+            <div class="header-controls">
+                <select id="langSelect" class="lang-select" title="Select Language">
+                    <option value="en">English</option>
+                    <option value="hi">हिन्दी (Hindi)</option>
+                    <option value="te">తెలుగు (Telugu)</option>
+                    <option value="ta">தமிழ் (Tamil)</option>
+                    <option value="ml">മലയാളം (Malayalam)</option>
+                    <option value="kn">ಕನ್ನಡ (Kannada)</option>
+                    <option value="bn">বাংলা (Bengali)</option>
+                    <option value="mr">मराठी (Marathi)</option>
+                    <option value="gu">ગુજરાતી (Gujarati)</option>
+                    <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+                    <option value="ur">اردو (Urdu)</option>
+                    <option value="or">ଓଡ଼ିଆ (Odia)</option>
+                </select>
+                <button id="themeToggleBtn" class="theme-btn" title="Toggle Dark/Light Mode">🌙</button>
+            </div>
+        </div>
+
+        <!-- Live Stats Counter Banner -->
+        <div class="stats-banner">
+            <div class="stat-card">
+                <span id="totalCheckedCount" class="stat-number">0</span>
+                <span class="stat-label" data-i18n="totalChecked">Total Checked</span>
+            </div>
+            <div class="stat-card scam">
+                <span id="scamsFoundCount" class="stat-number">0</span>
+                <span class="stat-label" data-i18n="scamsFound">Scams Found</span>
+            </div>
+        </div>
+
+        <!-- Main Check Section -->
+        <div class="card">
+            <div class="textarea-header">
+                <label for="msg" data-i18n="pasteLabel">Paste SMS or Upload Screenshot</label>
+                <div class="action-btn-group">
+                    <button id="pasteBtn" class="action-btn" data-i18n="pasteBtn">📋 Paste</button>
+                    <label for="imageUpload" class="action-btn upload-lbl" data-i18n="uploadBtn">📷 Upload</label>
+                    <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+                </div>
+            </div>
+            
+            <textarea id="msg" data-i18n-placeholder="textareaPlaceholder" placeholder="Paste message here or upload a screenshot..."></textarea>
+            
+            <div id="ocrStatus" class="ocr-status" style="display: none;" data-i18n="ocrLoading">
+                ⏳ Scanning image for text... Please wait.
+            </div>
+
+            <div class="examples-label" data-i18n="tryExamples">Try quick examples:</div>
+            <div class="examples" id="examples"></div>
+
+            <button class="check-btn" id="checkBtn" data-i18n="checkBtn">Check Message 🔍</button>
+        </div>
+
+        <!-- Result Box -->
+        <div id="result" class="result-box">
+            <div class="result-top">
+                <div id="verdict" class="verdict-title"></div>
+                <div class="action-buttons">
+                    <button id="speakBtn" class="speak-btn" title="Read Aloud" data-i18n="listenBtn">🔊 Listen</button>
+                    <button id="shareBtn" class="share-btn" title="Share Warning" data-i18n="shareBtn">📲 Share</button>
+                </div>
+            </div>
+            <div id="risk" class="risk-score"></div>
+            <ul id="reason" class="reasons-list"></ul>
+        </div>
+
+        <!-- Report New Scam Button -->
+        <button id="openReportModalBtn" class="report-trigger-btn" data-i18n="reportBtn">🚨 Report a New Scam Trend</button>
+
+        <!-- History Log Section -->
+        <div class="history-section">
+            <div class="history-title-row">
+                <h3 data-i18n="historyTitle">🕘 Test History Log</h3>
+                <button id="clearHistoryBtn" class="clear-btn" data-i18n="clearHistory">Clear History</button>
+            </div>
+            <div id="historyList" class="history-list">
+                <p class="empty-history" data-i18n="emptyHistory">No checked messages in history yet.</p>
+            </div>
+        </div>
+
+        <a href="tel:1930" class="helpline"><span data-i18n="helplineText">Cybercrime Helpline:</span> <span>📞 1930</span></a>
+    </div>
+
+    <!-- Report Modal Popup -->
+    <div id="reportModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span id="closeModalBtn" class="close-btn">&times;</span>
+            <h3 data-i18n="modalTitle">🚨 Report New Scam Pattern</h3>
+            <p data-i18n="modalDesc">Enter details of the new scam message:</p>
+            <textarea id="reportText" data-i18n-placeholder="modalPlaceholder" placeholder="Type scam message or details..."></textarea>
+            <button id="submitReportBtn" class="check-btn" data-i18n="submitReport">Submit Report</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

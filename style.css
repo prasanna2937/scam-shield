@@ -1,0 +1,451 @@
+:root {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --border: #334155;
+    --button-bg: #334155;
+}
+
+[data-theme="light"] {
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --border: #e2e8f0;
+    --button-bg: #f1f5f9;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 10px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header h1 {
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.header p {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+.logo {
+    font-size: 1.3rem;
+    background: var(--button-bg);
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.header-controls {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.lang-select {
+    background: var(--button-bg);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    font-size: 0.75rem;
+    padding: 6px;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+    max-width: 110px;
+}
+
+.theme-btn {
+    background: var(--button-bg);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    font-size: 0.9rem;
+    padding: 6px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+}
+
+.stats-banner {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.stat-card {
+    flex: 1;
+    background: var(--button-bg);
+    border: 1px solid var(--border);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-number {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.stat-card.scam .stat-number {
+    color: #ef4444;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.textarea-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+label {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.action-btn-group {
+    display: flex;
+    gap: 6px;
+}
+
+.action-btn, .upload-lbl {
+    background: var(--button-bg);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    font-size: 0.75rem;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    font-size: 0.85rem;
+    background: var(--card-bg);
+    color: var(--text-main);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    resize: none;
+    outline: none;
+}
+
+textarea:focus {
+    border-color: var(--primary);
+}
+
+.ocr-status {
+    font-size: 0.75rem;
+    color: var(--primary);
+    background: var(--button-bg);
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+
+.examples-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.examples {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.examples button {
+    background: var(--button-bg);
+    border: 1px solid var(--border);
+    padding: 5px 8px;
+    font-size: 0.72rem;
+    border-radius: 6px;
+    color: var(--text-main);
+    cursor: pointer;
+    flex: 1;
+    min-width: 60px;
+    text-align: center;
+}
+
+.check-btn {
+    width: 100%;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.result-box {
+    padding: 12px;
+    border-radius: 8px;
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.result-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.speak-btn, .share-btn {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid currentColor;
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 0.72rem;
+    cursor: pointer;
+    color: inherit;
+}
+
+.result-box.SCAM {
+    background: #450a0a;
+    border: 1px solid #991b1b;
+    color: #fca5a5;
+}
+
+.result-box.DOUBTFUL {
+    background: #451a03;
+    border: 1px solid #92400e;
+    color: #fcd34d;
+}
+
+.result-box.SAFE {
+    background: #052e16;
+    border: 1px solid #166534;
+    color: #86efac;
+}
+
+.verdict-title {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.risk-score {
+    font-size: 0.78rem;
+}
+
+.reasons-list {
+    margin-left: 16px;
+    font-size: 0.8rem;
+}
+
+.report-trigger-btn {
+    width: 100%;
+    background: transparent;
+    border: 1px dashed var(--border);
+    color: var(--text-muted);
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.75);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    padding: 12px;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    color: var(--text-main);
+    padding: 18px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.modal-content h3 {
+    font-size: 0.95rem;
+}
+
+.modal-content p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.modal-content textarea {
+    height: 70px;
+}
+
+.close-btn {
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.history-section {
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.history-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.history-title-row h3 {
+    font-size: 0.88rem;
+}
+
+.clear-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    cursor: pointer;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 160px;
+    overflow-y: auto;
+}
+
+.empty-history {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 6px;
+}
+
+.history-item {
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.history-item.SCAM { border-left: 4px solid #ef4444; }
+.history-item.DOUBTFUL { border-left: 4px solid #f59e0b; }
+.history-item.SAFE { border-left: 4px solid #10b981; }
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+.history-time {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+}
+
+.helpline {
+    display: block;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-top: 2px;
+}
+
+.helpline span {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+@media (min-width: 600px) {
+    body { padding: 20px; }
+    .container { max-width: 500px; padding: 22px; }
+}
